@@ -13,7 +13,7 @@ const styles = [
 
 const DressStyle = () => {
   return (
-    <section className="py-8 sm:py-12 px-4 md:px-16 lg:px-24 max-w-7xl mx-auto">
+<section id="shop" className="py-8 sm:py-12 px-4 md:px-16 lg:px-24 max-w-7xl mx-auto scroll-mt-32">
       <div className="bg-[#F0F0F0] rounded-[24px] md:rounded-[40px] px-6 py-10 md:p-16">
         <h2 className="font-integral-cf font-bold text-3xl md:text-[48px] leading-none tracking-normal text-center mb-8 md:mb-14 text-black uppercase">  BROWSE BY DRESS STYLE </h2>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-5">

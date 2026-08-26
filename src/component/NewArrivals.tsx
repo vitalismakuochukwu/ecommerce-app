@@ -86,7 +86,7 @@ const NewArrivals = () => {
   const displayedProducts = showAll ? products : products.slice(0, 4);
 
   return (
-    <section className="py-8 sm:py-12 px-4 md:px-16 lg:px-24 max-w-7xl mx-auto">
+<section id="new-arrivals" className="py-8 sm:py-12 px-4 md:px-16 lg:px-24 max-w-7xl mx-auto scroll-mt-32">
       <h2 className="font-integral-cf text-2xl sm:text-3xl md:text-5xl font-extrabold text-center mb-8 sm:mb-10 md:mb-14 tracking-tight text-black">
         NEW ARRIVALS
       </h2>
