@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isBannerVisible, setIsBannerVisible] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false); // Active state for mobile search
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false); 
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -47,7 +47,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full font-sans sticky top-0 z-50 bg-white relative">
+    <div className="w-full font-sans sticky top-0 z-50 bg-white">
       {isBannerVisible && (
         <div className="w-full h-[38px] bg-black text-white flex items-center justify-center relative px-4 text-center">
           <p className="text-xs sm:text-sm font-light">
@@ -62,7 +62,7 @@ const Navbar = () => {
             className="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 p-1 hover:opacity-70 transition-opacity"
             aria-label="Close banner"
           >
-            <img src={closeIcon} alt="Close banner" className="hidden sm:block w-4 h-4 object-contain invert brightness-0" />
+            <img src={closeIcon} alt="Close banner" className="w-4 h-4 object-contain invert brightness-0" />
           </button>
         </div>
       )}
@@ -81,7 +81,7 @@ const Navbar = () => {
             <img 
               src={isMobileMenuOpen ? closeIcon : menuIcon} 
               alt="Menu" 
-              className="w-6 h-6 object-contain" 
+              className={`w-6 h-6 object-contain ${isMobileMenuOpen ? 'brightness-0' : ''}`} 
             />
           </button>
 
@@ -134,7 +134,6 @@ const Navbar = () => {
         </form>
 
         <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
-          {/* Active Mobile Search Button */}
           <button 
             type="button"
             onClick={() => {
@@ -161,8 +160,6 @@ const Navbar = () => {
           </button>
         </div>
       </header>
-
-      {/* Mobile Search Input Bar */}
       {isMobileSearchOpen && (
         <div className="lg:hidden w-full bg-white border-b border-[#0000001A] p-4 shadow-sm relative z-40">
           <form onSubmit={handleSearch} className="flex h-[44px] items-center gap-3 bg-[#F0F0F0] rounded-full px-4 w-full">
@@ -178,8 +175,6 @@ const Navbar = () => {
           </form>
         </div>
       )}
-
-      {/* Mobile Navigation Dropdown */}
       {isMobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-[#0000001A] shadow-xl py-4 px-6 flex flex-col gap-5 z-40">
           <a 

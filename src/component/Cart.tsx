@@ -31,9 +31,8 @@ const Cart = () => {
   }
 
   return (
-    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[100px] py-6 md:py-10 font-['Satoshi',sans-serif] bg-white">
+    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[100px] pt-6 md:pt-10 pb-32 lg:pb-48 font-['Satoshi',sans-serif] bg-white">
       
-      {/* Breadcrumb */}
       <nav className="flex items-center gap-1 md:gap-3 mb-6 font-['Satoshi',sans-serif] text-[14px] md:text-[16px] leading-[100%]">
         <span className="text-[#00000099] font-normal cursor-pointer hover:text-black transition-colors" onClick={() => navigate('/')}>Home</span>
         <img src={hetIcon} alt="Arrow" className="w-4 h-4 object-contain" />
@@ -46,7 +45,6 @@ const Cart = () => {
 
       <div className="flex flex-col lg:flex-row gap-5 lg:gap-8">
         
-        {/* Cart Items List */}
         <div className="flex-1 border border-[#0000001A] rounded-[20px] p-4 md:p-6 flex flex-col gap-6">
           {cartItems.map((item, index) => (
             <div key={`${item.id}-${item.size}-${item.color}-${index}`} className="flex gap-4 border-b border-[#0000001A] pb-6 last:border-b-0 last:pb-0">
@@ -67,7 +65,7 @@ const Cart = () => {
                       Color: <span className="text-[#00000099] capitalize">{item.color}</span>
                     </div>
                   </div>
-                  <button   onClick={() => removeFromCart(item.id, item.size, item.color)}  className="p-1 transition-opacity hover:opacity-70"    aria-label="Remove item"  >
+                  <button onClick={() => removeFromCart(item.id, item.size, item.color)} className="p-1 transition-opacity hover:opacity-70" aria-label="Remove item">
                     <img src={deleteIcon} alt="Delete" className="w-6 h-6 object-contain" />
                   </button>
                 </div>
