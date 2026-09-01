@@ -40,8 +40,6 @@ export default function App(){
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/search" element={<SearchResults />} /> 
-            
-            {/* Auth and Dashboard Routes */}
             <Route path="/login" element={<Login/>} /> 
             <Route path="/signup" element={<Signup/>} /> 
             <Route path="/dashboard" element={<Dashboard/>} /> 

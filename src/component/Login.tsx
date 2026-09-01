@@ -1,7 +1,7 @@
 // src/component/Login.tsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import passIcon from '../assets/pass.png'; // Make sure pass.png is in your assets folder
+import passIcon from '../assets/pass.png';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);

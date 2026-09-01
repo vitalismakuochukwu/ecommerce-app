@@ -1,13 +1,10 @@
-// src/component/Signup.tsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import passIcon from '../assets/pass.png';
-
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -16,7 +13,6 @@ const Signup = () => {
     lastName: '',
   });
 
-  // Check if token details exist beforehand -> redirect to dashboard if they do
   useEffect(() => {
     const existingToken = localStorage.getItem('accessToken');
     if (existingToken) {
@@ -59,17 +55,11 @@ const Signup = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f4f7fa] py-10 px-4" style={{ fontFamily: 'Satoshi, sans-serif' }}>
       <div className="w-[420px] bg-white p-8 shadow-xl border-2 border-black relative rounded-sm">
-        
-        {/* Top Accent Bar */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-2 bg-[#f6b74f]"></div>
-
-        {/* Header */}
         <div className="mt-2 mb-6">
           <h2 className="text-xl font-bold text-black mb-2 tracking-wide">Create your account</h2>
           <div className="w-12 h-1 bg-[#f6b74f]"></div>
         </div>
-
-        {/* Form */}
         <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block text-black text-xs font-bold mb-1" htmlFor="firstName">First name</label>
@@ -145,8 +135,6 @@ const Signup = () => {
               </button>
             </div>
           </div>
-
-          {/* Submit Button */}
           <div className="pt-2">
             <button
               type="submit"
@@ -157,8 +145,6 @@ const Signup = () => {
             </button>
           </div>
         </form>
-
-        {/* Footer Toggle Text */}
         <div className="text-center mt-5">
           <p className="text-sm text-black">
             Already have an account?{' '}

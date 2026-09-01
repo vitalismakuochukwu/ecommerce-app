@@ -121,8 +121,6 @@ const Navbar = () => {
             </a>
           </nav>
         </div>
-
-        {/* Desktop Search */}
         <form onSubmit={handleSearch} className="hidden lg:flex flex-1 max-w-[577px] mx-8 h-[48px] items-center gap-3 bg-[#F0F0F0] rounded-full px-4 focus-within:ring-1 focus-within:ring-black/20 transition-all">
           <img src={searchIcon} alt="Search" className="w-5 h-5 opacity-40" />
           <input 
@@ -155,8 +153,6 @@ const Navbar = () => {
               </span>
             )}
           </button>
-          
-          {/* User Icon routes to login/signup */}
           <button onClick={() => navigate('/login')} className="p-1 hover:opacity-70 transition-opacity group">
             <img src={userIcon} alt="User" className="w-6 h-6 object-contain transition-transform group-hover:scale-110" />
           </button>
