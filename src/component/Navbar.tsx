@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 import closeIcon from '../assets/term.png'; 
@@ -20,7 +20,7 @@ const Navbar = () => {
   
   const cartItemsCount = cartItems?.reduce((total, item) => total + item.quantity, 0) || 0;
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
@@ -29,7 +29,7 @@ const Navbar = () => {
     }
   };
 
-  const scrollToSection = (e, sectionId) => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
     setIsMobileSearchOpen(false);
@@ -52,9 +52,10 @@ const Navbar = () => {
         <div className="w-full h-[38px] bg-black text-white flex items-center justify-center relative px-4 text-center">
           <p className="text-xs sm:text-sm font-light">
             Sign up and get 20% off to your first order.{' '}
-            <a href="#" className="font-medium underline underline-offset-4 hover:text-gray-300 transition-colors">
+            {/* Clickable link pointing to your signup page */}
+            <Link to="/signup" className="font-medium underline underline-offset-4 hover:text-gray-300 transition-colors">
               Sign Up Now
-            </a>
+            </Link>
           </p>
           <button 
             type="button"
@@ -155,11 +156,13 @@ const Navbar = () => {
             )}
           </button>
           
-          <button className="p-1 hover:opacity-70 transition-opacity group">
+          {/* User Icon routes to login/signup */}
+          <button onClick={() => navigate('/login')} className="p-1 hover:opacity-70 transition-opacity group">
             <img src={userIcon} alt="User" className="w-6 h-6 object-contain transition-transform group-hover:scale-110" />
           </button>
         </div>
       </header>
+
       {isMobileSearchOpen && (
         <div className="lg:hidden w-full bg-white border-b border-[#0000001A] p-4 shadow-sm relative z-40">
           <form onSubmit={handleSearch} className="flex h-[44px] items-center gap-3 bg-[#F0F0F0] rounded-full px-4 w-full">
@@ -175,6 +178,7 @@ const Navbar = () => {
           </form>
         </div>
       )}
+
       {isMobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-[#0000001A] shadow-xl py-4 px-6 flex flex-col gap-5 z-40">
           <a 
